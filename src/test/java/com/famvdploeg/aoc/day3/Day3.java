@@ -1,5 +1,6 @@
 package com.famvdploeg.aoc.day3;
 
+import com.famvdploeg.aoc.AbstractBaseTest;
 import com.famvdploeg.aoc.util.Resource;
 import com.famvdploeg.aoc.util.ResourceReader;
 import lombok.extern.slf4j.Slf4j;
@@ -8,11 +9,9 @@ import org.junit.jupiter.api.Test;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Set;
-import java.util.stream.Collectors;
-import java.util.stream.Stream;
 
 @Slf4j
-public class Day3 {
+public class Day3 extends AbstractBaseTest {
 
     private static final int START_LOWERCASE = 96;
     private static final int START_UPPERCASE = 38;
@@ -29,7 +28,7 @@ public class Day3 {
             String compartmentOne = item.substring(0, half);
             String compartmentTwo = item.substring(half);
 
-            Set<Character> intersection = getIntersection(List.of(compartmentOne, compartmentTwo));
+            Set<Character> intersection = functions.getIntersection(List.of(compartmentOne, compartmentTwo));
             log.debug("Intersection: [{}]", intersection);
             totalPriority += this.toCodePoint(intersection);
         }
@@ -48,7 +47,7 @@ public class Day3 {
             if (group.size() % 3 == 0) {
                 log.debug("Group complete: [{}]", group);
 
-                Set<Character> intersection = getIntersection(group);
+                Set<Character> intersection = functions.getIntersection(group);
                 totalPriority += this.toCodePoint(intersection);
                 group = new ArrayList<>();
             }
@@ -61,26 +60,13 @@ public class Day3 {
         Resource.ResourceHandler handler = lines$ -> lines$
                 .onBackpressureBuffer(3)
                 .buffer(3)
-                .map(this::getIntersection)
+                .map(functions::getIntersection)
                 .map(this::toCodePoint)
                 .reduce(0, Integer::sum)
                 .subscribe(total -> log.info("Total: {}", total))
                 .dispose();
 
         Resource.flowable("/input/day3/input.txt", handler);
-    }
-
-    private Set<Character> getIntersection(List<String> values) {
-        Stream<Character> head = values.get(0).chars()
-                .distinct()
-                .mapToObj(i -> (char) i);
-
-        for (String tail : values.subList(1, values.size())) {
-            head = head.filter(c ->
-                    tail.chars().anyMatch(value -> c == value));
-        }
-
-        return head.collect(Collectors.toSet());
     }
 
     private int toCodePoint(Set<Character> values) {
