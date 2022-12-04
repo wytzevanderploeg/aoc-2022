@@ -27,7 +27,7 @@ public class Day2 {
             RockPaperScissors yours = RockPaperScissors.fromValue(items[1].charAt(0));
 
             int score = game.score(yours, theirs);
-            log.info("Score: {}", score);
+            log.debug("Score: {}", score);
             total += score;
         }
 
@@ -49,7 +49,7 @@ public class Day2 {
             GameOutcome yours = GameOutcome.fromValue(items[1].charAt(0));
 
             int score = game.score(yours, theirs);
-            log.info("Score: {}", score);
+            log.debug("Score: {}", score);
             total += score;
         }
 

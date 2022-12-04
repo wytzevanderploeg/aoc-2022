@@ -23,7 +23,7 @@ public class Day4 extends AbstractBaseTest {
                 .map(this::toSections)
                 .filter(tuple -> functions.fullMatch(tuple.getFirst(), tuple.getSecond()))
                 .doOnEach(entry -> {
-                    log.info("Value: {}", entry);
+                    log.debug("Value: {}", entry);
                 })
                 .count()
                 .subscribe(total -> log.info("Total: {}", total))
