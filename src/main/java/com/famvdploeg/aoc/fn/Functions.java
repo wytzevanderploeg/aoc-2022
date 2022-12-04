@@ -21,6 +21,16 @@ public class Functions {
         return head.collect(Collectors.toSet());
     }
 
+    public <T> List<T> getIntersection(List<T> first, List<T> second) {
+        return first.stream()
+                .filter(second::contains)
+                .collect(Collectors.toList());
+    }
+
+    public <T> boolean fullMatch(Collection<T> first, Collection<T> second) {
+        return first.containsAll(second) || second.containsAll(first);
+    }
+
     public Stream<Character> toCharStream(String input) {
         return input.chars()
                 .mapToObj(c -> (char) c);
