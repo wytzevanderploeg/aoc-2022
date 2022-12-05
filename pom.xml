@@ -23,6 +23,7 @@
         <configuration>
           <includes>
             <include>**/Day*.java</include>
+            <include>**/*Test.java</include>
           </includes>
           <excludes>
             <exclude>**/DayX.java</exclude>
@@ -60,6 +61,12 @@
     <dependency>
       <groupId>org.junit.jupiter</groupId>
       <artifactId>junit-jupiter-engine</artifactId>
+      <version>5.9.0</version>
+      <scope>test</scope>
+    </dependency>
+    <dependency>
+      <groupId>org.junit.jupiter</groupId>
+      <artifactId>junit-jupiter-params</artifactId>
       <version>5.9.0</version>
       <scope>test</scope>
     </dependency>
