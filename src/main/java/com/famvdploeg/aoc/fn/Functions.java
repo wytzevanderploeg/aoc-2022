@@ -1,11 +1,16 @@
 package com.famvdploeg.aoc.fn;
 
+import io.reactivex.rxjava3.core.Observable;
+import lombok.extern.slf4j.Slf4j;
+
 import java.util.Collection;
 import java.util.List;
 import java.util.Set;
+import java.util.regex.Matcher;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
+@Slf4j
 public class Functions {
 
     public Set<Character> getIntersection(List<String> values) {
@@ -29,6 +34,14 @@ public class Functions {
 
     public <T> boolean fullMatch(Collection<T> first, Collection<T> second) {
         return first.containsAll(second) || second.containsAll(first);
+    }
+
+    public Observable<String> toMatches(Matcher matcher) {
+        return Observable.create(emitter -> {
+            while (matcher.find()) {
+                emitter.onNext(matcher.group(1));
+            }
+        });
     }
 
     public Stream<Character> toCharStream(String input) {
