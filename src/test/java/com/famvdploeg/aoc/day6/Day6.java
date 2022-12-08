@@ -1,4 +1,4 @@
-package com.famvdploeg.aoc.day6.skeleton;
+package com.famvdploeg.aoc.day6;
 
 import com.famvdploeg.aoc.AbstractBaseTest;
 import com.famvdploeg.aoc.util.ResourceReader;
