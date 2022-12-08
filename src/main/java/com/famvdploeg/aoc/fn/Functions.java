@@ -2,7 +2,9 @@ package com.famvdploeg.aoc.fn;
 
 import io.reactivex.rxjava3.core.Observable;
 import lombok.extern.slf4j.Slf4j;
+import org.javatuples.Pair;
 
+import java.lang.reflect.Array;
 import java.util.Collection;
 import java.util.List;
 import java.util.Set;
@@ -44,6 +46,42 @@ public class Functions {
         });
     }
 
+    /**
+     * Split an array at the given index.
+     * @param input The input to split.
+     * @param index The index to split at. Zero based.
+     * @param arrayType The required type.
+     * @return A pair containing the two arrays.
+     * @param <T> The array type.
+     */
+    public <T> Pair<T[], T[]> split(T[] input, int index, Class<T> arrayType) {
+        T[] first = this.instantiateArray(index, arrayType);
+        T[] second = this.instantiateArray(input.length - index, arrayType);
+        System.arraycopy(input, 0, first, 0, index);
+        System.arraycopy(input, index, second, 0, input.length - index);
+        return new Pair<>(first, second);
+    }
+
+    public <T> Pair<T[], T[]> splitAround(T[] input, int index, Class<T> arrayType) {
+        if (input == null) {
+            throw new IllegalArgumentException("Input cannot be null.");
+        }
+        if (index < 0 || index >= input.length) {
+            throw new IndexOutOfBoundsException(
+                    String.format("Index out of bounds: %s for input with size: %s", index, input.length));
+        }
+
+        T[] first = this.instantiateArray(index, arrayType);
+        System.arraycopy(input, 0, first, 0, index);
+
+        int right = index + 1;
+        int sizeRight = input.length - right;
+        T[] second = this.instantiateArray(sizeRight, arrayType);
+        System.arraycopy(input, right, second, 0, sizeRight);
+
+        return new Pair<>(first, second);
+    }
+
     public Stream<Character> toCharStream(String input) {
         return input.chars()
                 .mapToObj(c -> (char) c);
@@ -55,4 +93,13 @@ public class Functions {
                 .collect(Collectors.joining());
     }
 
+    @SuppressWarnings("unchecked")
+    private <T> T[] instantiateArray(int size, Class<T> arrayType) {
+        return (T[]) Array.newInstance(arrayType, size);
+    }
+
+    @SuppressWarnings("unchecked")
+    private <T> T[][] instantiateArray(int width, int height, Class<T> arrayType) {
+        return (T[][]) Array.newInstance(arrayType, width, height);
+    }
 }
