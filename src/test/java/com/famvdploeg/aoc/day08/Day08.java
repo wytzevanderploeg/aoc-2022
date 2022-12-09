@@ -1,4 +1,4 @@
-package com.famvdploeg.aoc.day8;
+package com.famvdploeg.aoc.day08;
 
 import com.famvdploeg.aoc.AbstractBaseTest;
 import com.famvdploeg.aoc.util.ResourceReader;
@@ -6,15 +6,14 @@ import lombok.extern.slf4j.Slf4j;
 import org.javatuples.Pair;
 import org.junit.jupiter.api.Test;
 
-import java.util.ArrayList;
 import java.util.List;
 
 @Slf4j
-public class Day8 extends AbstractBaseTest {
+public class Day08 extends AbstractBaseTest {
 
     @Test
     void partOne() {
-        List<String> lines = ResourceReader.readResource("/input/day8/input.txt");
+        List<String> lines = ResourceReader.readResource("/input/day08/input.txt");
         short[][] grid = loadGrid(lines);
 
         if (grid == null) {
@@ -75,7 +74,7 @@ public class Day8 extends AbstractBaseTest {
 
     @Test
     void partTwo() {
-        List<String> lines = ResourceReader.readResource("/input/day8/input.txt");
+        List<String> lines = ResourceReader.readResource("/input/day08/input.txt");
         short[][] grid = loadGrid(lines);
 
         if (grid == null) {

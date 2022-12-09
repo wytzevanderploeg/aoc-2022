@@ -1,4 +1,4 @@
-package com.famvdploeg.aoc.day3;
+package com.famvdploeg.aoc.day03;
 
 import com.famvdploeg.aoc.AbstractBaseTest;
 import com.famvdploeg.aoc.util.Resource;
@@ -11,14 +11,14 @@ import java.util.List;
 import java.util.Set;
 
 @Slf4j
-public class Day3 extends AbstractBaseTest {
+public class Day03 extends AbstractBaseTest {
 
     private static final int START_LOWERCASE = 96;
     private static final int START_UPPERCASE = 38;
 
     @Test
     void partOne() {
-        List<String> items = ResourceReader.readResource("/input/day3/input.txt");
+        List<String> items = ResourceReader.readResource("/input/day03/input.txt");
         int totalPriority = 0;
         for (String item : items) {
             if (item.length() % 2 == 1) {
@@ -37,7 +37,7 @@ public class Day3 extends AbstractBaseTest {
 
     @Test
     void partTwo() {
-        List<String> items = ResourceReader.readResource("/input/day3/input.txt");
+        List<String> items = ResourceReader.readResource("/input/day03/input.txt");
 
         List<String> group = new ArrayList<>();
         int totalPriority = 0;
@@ -66,7 +66,7 @@ public class Day3 extends AbstractBaseTest {
                 .subscribe(total -> log.info("Total: {}", total))
                 .dispose();
 
-        Resource.flowable("/input/day3/input.txt", handler);
+        Resource.flowable("/input/day03/input.txt", handler);
     }
 
     private int toCodePoint(Set<Character> values) {

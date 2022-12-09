@@ -1,17 +1,12 @@
-package com.famvdploeg.aoc.day5;
+package com.famvdploeg.aoc.day05;
 
 import com.famvdploeg.aoc.AbstractBaseTest;
-import com.famvdploeg.aoc.fn.Tuple;
-import com.famvdploeg.aoc.util.Resource;
 import com.famvdploeg.aoc.util.ResourceReader;
-import io.reactivex.rxjava3.core.Flowable;
 import io.reactivex.rxjava3.core.Observable;
 import lombok.extern.slf4j.Slf4j;
 import org.assertj.core.api.Assertions;
 import org.javatuples.Pair;
 import org.junit.jupiter.api.Test;
-import org.junit.jupiter.params.ParameterizedTest;
-import org.junit.jupiter.params.provider.ValueSource;
 
 import java.util.*;
 import java.util.regex.Matcher;
@@ -21,7 +16,7 @@ import java.util.stream.IntStream;
 import java.util.stream.Stream;
 
 @Slf4j
-public class Day5 extends AbstractBaseTest {
+public class Day05 extends AbstractBaseTest {
 
     @Test
     void partOne() {
@@ -44,7 +39,7 @@ public class Day5 extends AbstractBaseTest {
     }
 
     private String stackCrates(boolean reverseCollection) {
-        List<String> lines = ResourceReader.readResource("/input/day5/input.txt");
+        List<String> lines = ResourceReader.readResource("/input/day05/input.txt");
 
         List<String> cratesLines = lines.stream()
                 .takeWhile(line -> !line.isBlank())

@@ -1,4 +1,4 @@
-package com.famvdploeg.aoc.day2;
+package com.famvdploeg.aoc.day02;
 
 import com.famvdploeg.aoc.domain.GameOutcome;
 import com.famvdploeg.aoc.domain.RockPaperScissors;
@@ -10,12 +10,12 @@ import org.junit.jupiter.api.Test;
 import java.util.List;
 
 @Slf4j
-public class Day2 {
+public class Day02 {
 
     @Test
     void partOne() {
         RockPaperScissorsGame game = new RockPaperScissorsGame();
-        List<String> input = ResourceReader.readResource("/input/day2/input.txt");
+        List<String> input = ResourceReader.readResource("/input/day02/input.txt");
 
         int total = 0;
         for (String line : input) {
@@ -37,7 +37,7 @@ public class Day2 {
     @Test
     void partTwo() {
         RockPaperScissorsGame game = new RockPaperScissorsGame();
-        List<String> input = ResourceReader.readResource("/input/day2/input.txt");
+        List<String> input = ResourceReader.readResource("/input/day02/input.txt");
 
         int total = 0;
         for (String line : input) {

@@ -1,4 +1,4 @@
-package com.famvdploeg.aoc.day1;
+package com.famvdploeg.aoc.day01;
 
 import com.famvdploeg.aoc.domain.Elf;
 import com.famvdploeg.aoc.domain.Food;
@@ -12,7 +12,7 @@ import java.util.List;
 import java.util.Optional;
 
 @Slf4j
-public class Day1 {
+public class Day01 {
 
     @Test
     void partOne() {
@@ -28,7 +28,7 @@ public class Day1 {
     void partTwo() {
         List<Elf> elves = new ArrayList<>();
 
-        List<String> input = ResourceReader.readResource("/input/day1/input.txt");
+        List<String> input = ResourceReader.readResource("/input/day01/input.txt");
 
         int i = 0;
         Elf elf = new Elf("elf-" + i++);
@@ -64,7 +64,7 @@ public class Day1 {
     private List<Elf> loadElves() {
         List<Elf> elves = new ArrayList<>();
 
-        List<String> input = ResourceReader.readResource("/input/day1/input.txt");
+        List<String> input = ResourceReader.readResource("/input/day01/input.txt");
 
         int i = 0;
         Elf elf = new Elf("elf-" + i++);

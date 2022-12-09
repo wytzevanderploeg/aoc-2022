@@ -1,19 +1,16 @@
-package com.famvdploeg.aoc.day4;
+package com.famvdploeg.aoc.day04;
 
 import com.famvdploeg.aoc.AbstractBaseTest;
 import com.famvdploeg.aoc.fn.Tuple;
 import com.famvdploeg.aoc.util.Resource;
 import lombok.extern.slf4j.Slf4j;
-import org.assertj.core.api.Assertions;
 import org.junit.jupiter.api.Test;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Set;
-import java.util.stream.Collectors;
 
 @Slf4j
-public class Day4 extends AbstractBaseTest {
+public class Day04 extends AbstractBaseTest {
 
     @Test
     void partOne() {
@@ -28,7 +25,7 @@ public class Day4 extends AbstractBaseTest {
                 .count()
                 .subscribe(total -> log.info("Total: {}", total))
                 .dispose();
-        Resource.flowable("/input/day4/input.txt", handler);
+        Resource.flowable("/input/day04/input.txt", handler);
     }
 
     @Test
@@ -42,7 +39,7 @@ public class Day4 extends AbstractBaseTest {
                 .count()
                 .subscribe(total -> log.info("Total: {}", total))
                 .dispose();
-        Resource.flowable("/input/day4/input.txt", handler);
+        Resource.flowable("/input/day04/input.txt", handler);
     }
 
     private Tuple<List<Integer>> toSections(String[] parts) {

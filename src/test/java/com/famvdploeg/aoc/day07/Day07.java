@@ -1,4 +1,4 @@
-package com.famvdploeg.aoc.day7;
+package com.famvdploeg.aoc.day07;
 
 import com.famvdploeg.aoc.AbstractBaseTest;
 import com.famvdploeg.aoc.util.ResourceReader;
@@ -10,16 +10,15 @@ import java.nio.file.Path;
 import java.util.*;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
-import java.util.stream.Stream;
 
 @Slf4j
-public class Day7 extends AbstractBaseTest {
+public class Day07 extends AbstractBaseTest {
 
     private static final Pattern OPERATOR = Pattern.compile("\\$ (\\w+)( (.*?)|)");
 
     @Test
     void partOne() {
-        List<String> lines = ResourceReader.readResource("/input/day7/input.txt");
+        List<String> lines = ResourceReader.readResource("/input/day07/input.txt");
 
         Path curPath = Path.of("/");
         Map<Path, List<Pair<Integer, String>>> dirSizes = new HashMap<>();
@@ -77,7 +76,7 @@ public class Day7 extends AbstractBaseTest {
 
     @Test
     void partTwo() {
-        List<String> lines = ResourceReader.readResource("/input/day7/input.txt");
+        List<String> lines = ResourceReader.readResource("/input/day07/input.txt");
 
         Path curPath = Path.of("/");
         Map<Path, List<Pair<Integer, String>>> dirSizes = new HashMap<>();
